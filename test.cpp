@@ -17,12 +17,12 @@ int functionB() {
 	int  a = 1;
 
 	if (a < 0); 
-	{ //if a is less than 0, so skip this block
+	{ //a is not less than 0, so skip this block
 		std::cout << "a is smaller than 0" << std::endl;
 		a = 42;
 	}
 	
-	return a; //i should be 1
+	return a; //a should be 1
 }
 
 int functionC() {
@@ -47,7 +47,7 @@ int functionE() {
 	int i = 0;
 	int j = 0;
 	
-	if (i > 0) //change i if it is  
+	if (i > 5) //change i if it is  
 		std::cout << "i is not 5, changing it to 5" << std::endl;
 		j = 5;
 
@@ -114,6 +114,18 @@ int functionK() {
 	return i; //i is 1
 }
 
+int functionL() {
+	int x = 5;
+	int y = 0;
+	int z = 10;
+
+	y = x // is assigned the value of x
+
+	&z; //get address of z, whhich we will use to ... 
+
+	return y; //y should be 5
+}
+
 TEST(TestFunctionA, Returns1) {
   EXPECT_EQ(1, functionA());
 }
@@ -130,6 +142,6 @@ TEST(TestFunctionD, Returns5) {
 	EXPECT_EQ(10, functionD());
 }
 
-TEST(TestFunctionD, Returns5) {
-	EXPECT_EQ(10, functionD());
+TEST(TestFunctionL, Returns5) {
+	EXPECT_EQ(5, functionL());
 }
